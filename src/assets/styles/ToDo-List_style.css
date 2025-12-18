@@ -1,0 +1,95 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    button[type="submit"] {
+        font-family: inherit;
+        font-size: 16px;
+    }
+}
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #0c0c0c 0%,
+        #1a1a2e 15%,
+        #16213e 35%,
+        #0f3460 50%,
+        #533a7d 70%,
+        #8b5a8c 85%,
+        #a0616a 100%
+    );
+    min-height: 100vh;
+    
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.app-wrapper {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+}
+
+
+.app-title {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.app-subtitle {
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.card {
+  background-color: #ffffff !important;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px hsla(249, 73%, 54%, 0.91);
+}
+
+.card-task {
+  background-color: #ffffff; 
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  
+}
+.card-task-enter {
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+  animation: taskEnterAnim 0.4s forwards;
+}
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.task-buttons {
+  display: flex;
+}
+
+.task-buttons > * + * {
+  margin-left: 16px;
+}
