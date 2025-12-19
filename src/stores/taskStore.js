@@ -1,10 +1,36 @@
 import { defineStore } from 'pinia'
 
+const defaultTasks = [
+  {
+    id: 1,
+    title: 'Перше завдання',
+    description: 'Вмитися',
+    completed: false
+  },
+  {
+    id: 2,
+    title: 'Друге завдання',
+    description: 'Поїсти',
+    completed: false
+  },
+  {
+    id: 3,
+    title: 'Третє завдання',
+    description: 'Побажати собі гарного дня',
+    completed: false
+  }
+]
+
+
 export const useTaskStore = defineStore('tasks', {
-  state: () => ({
-    tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+  state: () => {
+  const savedTasks = localStorage.getItem('tasks')
+
+  return {
+    tasks: savedTasks ? JSON.parse(savedTasks) : defaultTasks,
     filter: 'all'
-  }),
+  }
+},
 
   getters: {
     filteredTasks(state) {
