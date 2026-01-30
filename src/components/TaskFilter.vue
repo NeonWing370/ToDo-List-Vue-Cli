@@ -12,8 +12,3 @@ import { useTaskStore } from '../stores/taskStore'
 const store = useTaskStore()
 const set = (value) => store.setFilter(value)
 </script> 
-
-
-
-
-

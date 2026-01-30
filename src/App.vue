@@ -14,4 +14,3 @@
     </router-view>
   </div>
 </template>
-

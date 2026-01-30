@@ -34,27 +34,21 @@ export const useTaskStore = defineStore('tasks', {
 
   getters: {
     filteredTasks(state) {
-      if (state.filter === 'active') {
-        return state.tasks.filter(task => !task.completed)
-      }
-      if (state.filter === 'completed') {
-        return state.tasks.filter(task => task.completed)
-      }
+      if (state.filter === 'active') return state.tasks.filter(task => !task.completed)
+      if (state.filter === 'completed') return state.tasks.filter(task => task.completed)
       return state.tasks
     }
   },
 
   actions: {
     saveToLocalStorage() {
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
-      
+      saveTasks(this.tasks)
     },
 
     addTask(task) {
       this.tasks.push(task)
       this.saveToLocalStorage()
     },
-    
 
     deleteTask(id) {
       this.tasks = this.tasks.filter(task => task.id !== id)
@@ -72,7 +66,7 @@ export const useTaskStore = defineStore('tasks', {
     updateTask(updatedTask) {
       const index = this.tasks.findIndex(t => t.id === updatedTask.id)
       if (index !== -1) {
-        this.tasks[index] = updatedTask
+        this.tasks[index] = { ...updatedTask }
         this.saveToLocalStorage()
       }
     },
